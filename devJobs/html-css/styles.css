@@ -33,9 +33,6 @@
 }
 
 
-
-
-
 body {
   font-family: system-ui;
   background-color: var(--background);
@@ -46,17 +43,14 @@ body {
   line-height: 1.6;
 }
 
-
-
-
 /* Títulos principales */
 h1 {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   line-height: 1.2;
   text-wrap: balance;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 1rem;
 
   svg {
     width: 2rem;
@@ -64,11 +58,13 @@ h1 {
     color: var(--primary-light);
   }
 }
-
-h1 + p {
+  h1+ p {
   text-wrap: balance;
   margin-bottom: 2rem
 }
+
+
+
 
 /* Header */
 header {
@@ -80,7 +76,7 @@ header {
   justify-content: space-between;
   gap: 2rem;
 
-  h2 {
+  h2{
     font-size: 1.25rem;
     font-weight: 700;
     color: var(--text-primary);
@@ -118,6 +114,50 @@ header div a {
   text-decoration: none;
   /* TODO */
 }
+.header-acciones {
+  display: flex;
+  gap: 0.75rem;
+}
+
+/* Estilo base */
+.header-acciones a {
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.6rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  display: inline-block;
+}
+
+/* Botón principal */
+.btn-publicar{
+  background-color: var(--primary);
+  color: white;
+}
+
+.btn-publicar:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(41, 61, 80, 0.35);
+}
+
+/* Botón secundario */
+.btn-iniciar {
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  background-color: transparent;
+}
+
+.btn-iniciar:hover {
+  background-color: var(--card-bg);
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+
+
+
 
 /* Hero */
 main > section:nth-child(1) {
@@ -216,7 +256,8 @@ button {
 }
 
 /* Features Section */
-main > section:nth-child(2) {
+
+main > section:nth-child(2){
   padding-inline: 1rem;
   background-color: var(--background);
   padding-top: 2rem;
@@ -226,7 +267,7 @@ main > section:nth-child(2) {
     flex-direction: column;
 
     h2 {
-      margin-bottom: 0;
+      margin-bottom: 1rem;
     }
 
     p {
@@ -253,6 +294,7 @@ main > section:nth-child(2) > div > div:first-child > p {
   max-width: 42rem;
   margin: 0 auto;
 }
+
 
 /* Grid de Features */
 main > section:nth-child(2) footer {
@@ -323,5 +365,115 @@ article {
 
   h3 {
     font-weight: 500;
+  }
+}
+
+
+main > section:nth-child(3){
+  padding-inline: 1rem;
+  background-color: var(--background);
+  padding-top: 2rem;
+
+  & > header {
+    gap: 2px;
+    flex-direction: column;
+
+    h2 {
+      margin-bottom:1rem;
+    }
+
+    p {
+      opacity: .75;
+    }
+  }
+
+  & > div {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+}
+
+main > section:nth-child(3) h2 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+/* Grid de Features */
+main > section:nth-child(3) footer {
+  display: grid;
+  grid-template-columns:repeat(auto-fit, minmax(600px, 1fr));
+  gap: 24px;
+  margin-top: 25px;
+
+}
+
+
+/* Estilo para las tarjetas de experiencias */
+main > section:nth-child(3) article {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 1.3rem;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    gap: 24px; 
+    box-shadow: 0 4px 6px -1px var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+main > section:nth-child(3) article p {
+    font-size: 0.9rem;  
+    line-height: 1.5;    
+}
+/* Estilización de las imágenes */
+main > section:nth-child(3) article img {
+    width: 180px;           
+    height: 180px;          
+    border-radius: 80%;     
+    object-fit: cover;     
+    border: 3px solid var(--primary);
+    margin:0;  
+    background-color: var(--background);
+    flex-shrink: 0; 
+    transition: transform 0.4s ease;
+}
+
+/* Hover en bloque completo */
+main > section:nth-child(3) article:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px -3px var(--shadow);
+}
+
+/* Zoom suave a la imagen */
+main > section:nth-child(3) article:hover img {
+    transform: scale(1.08);
+}
+
+/*responsive*/
+@media (max-width: 768px) {
+
+  /* Grid pasa a 1 columna */
+  main > section:nth-child(3) footer {
+    grid-template-columns: 1fr;
+  }
+
+  /* Card en columna */
+  main > section:nth-child(3) article {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  /* Imagen más chica en mobile */
+  main > section:nth-child(3) article img {
+    width: 140px;
+    height: 140px;
+  }
+
+  /* Espaciado del texto */
+  main > section:nth-child(3) .testimonial-content {
+    margin-top: 1rem;
   }
 }
